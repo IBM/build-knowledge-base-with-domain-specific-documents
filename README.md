@@ -62,7 +62,7 @@ Create the following IBM Cloud service and name it wdc-NLU-service:
 * Select the `From URL` tab.
 * Enter a name for the notebook.
 * Optionally, enter a description for the notebook.
-* Enter this Notebook URL: https://github.com/IBM/watson-document-co-relation/blob/master/notebooks/watson_correlate_documents.ipynb
+* Enter this Notebook URL: https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/blob/master/notebook/Knowledge_graph.ipynb
 * Select the free Anaconda runtime.
 * Click the `Create` button.
 
