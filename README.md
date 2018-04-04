@@ -149,7 +149,9 @@ There are several ways to execute the code cells in your notebook:
     time, or repeatedly at your specified interval.
 
 ## 7. Analyze the results
+Check the process section of the notebook. First the configuration files(config_classification.txt and config_relations.txt) are loaded. The unstructured information is extracted using python package mammoth. Mammoth converts the docx files to html from where text in the tables is also analysed along with free floating text. The results from NLU are analyzed and augmented using the configuration files. The entities are augmented using the `config_classification.txt` and the relationships are augmented using `config_relations.txt`. The results are then filtered and formatted to pick up the relevant relations and discard the ones which are not relevant. The filtered relaionships are sent to draw graph function in the notebook, which will construct the knowledge graph.
 
+![](doc/source/images/graph.png)
 
 # Troubleshooting
 
