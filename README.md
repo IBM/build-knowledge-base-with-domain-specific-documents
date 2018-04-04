@@ -15,7 +15,7 @@ What make the Code Pattern valuable is its ability to process the tables in docx
 
 ![](doc/source/images/architecture.png)
 
-1. The unstructured text data from the docx files(html tables and free floating text) that need to be analyzed and correlated is extracted from the documents using custom python code.
+1. The unstructured text data from the docx files (html tables and free floating text) that need to be analyzed and correlated is extracted from the documents using custom python code.
 2. The text is classified using NLU and also tagged using the code pattern - [Extend Watson text classification](https://github.com/IBM/watson-document-classifier)
 3. The text is correlated with other text using the code pattern - [Correlate documents](https://github.com/IBM/watson-document-co-relation)  
 4. The results are filtered using custom python code.
@@ -92,7 +92,7 @@ If you use a configuration file from your computer, make sure to conform to the 
 ## 5. Update the notebook with service credentials
 
 #### Add the Watson Natural Language Understanding credentials to the notebook
-Select the cell below `2.1 Add your service credentials from IBM Cloud for the Watson services` section in the notebook to update the credentials for Watson Natural Langauage Understanding. 
+Select the cell below `2.1 Add your service credentials from IBM Cloud for the Watson services` section in the notebook to update the credentials for Watson Natural Language Understanding. 
 
 Open the Watson Natural Language Understanding service in your [IBM Cloud Dashboard](https://console.bluemix.net/dashboard/services) and click on your service, which you should have named `wdc-NLU-service`.
 
@@ -149,7 +149,7 @@ There are several ways to execute the code cells in your notebook:
     time, or repeatedly at your specified interval.
 
 ## 7. Analyze the results
-Check the process section of the notebook. First the configuration files(config_classification.txt and config_relations.txt) are loaded. The unstructured information is extracted using python package mammoth. Mammoth converts the docx files to html from where text in the tables is also analysed along with free floating text. The results from NLU are analyzed and augmented using the configuration files. The entities are augmented using the `config_classification.txt` and the relationships are augmented using `config_relations.txt`. The results are then filtered and formatted to pick up the relevant relations and discard the ones which are not relevant. The filtered relaionships are sent to draw graph function in the notebook, which will construct the knowledge graph.
+Check the process section of the notebook. First the configuration files (`config_classification.txt` and `config_relations.txt`) are loaded. The unstructured information is extracted using python package mammoth. Mammoth converts the docx files to html from where text in the tables is also analysed along with free floating text. The results from NLU are analyzed and augmented using the configuration files. The entities are augmented using the `config_classification.txt` and the relationships are augmented using `config_relations.txt`. The results are then filtered and formatted to pick up the relevant relations and discard the ones which are not relevant. The filtered relaionships are sent to draw graph function in the notebook, which will construct the knowledge graph.
 
 ![](doc/source/images/graph.png)
 
@@ -166,7 +166,7 @@ You might encounter this nltk error, `package not found`. To avoid that please f
 
 ![](doc/source/images/step2.png)
 
-for streaming body object :
+for streaming body object:
 Make sure the StreamingBody object variable in cell 2.2 is mentioned in the highlighted space.
 ![](doc/source/images/streaming.png)
 
