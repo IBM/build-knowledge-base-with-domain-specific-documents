@@ -155,6 +155,21 @@ Check the process section of the notebook. First the configuration files(config_
 
 # Troubleshooting
 
+You might encounter this nltk error, `package not found`. To avoid that please follow the steps given below:
+
+1. run nltk.download() :
+2. Type `d` and press enter 
+
+![](doc/source/images/step1.png)
+
+3. Type `all` and press enter
+
+![](doc/source/images/step2.png)
+
+for streaming body object :
+Make sure the StreamingBody object variable in cell 2.2 is mentioned in the highlighted space.
+![](doc/source/images/streaming.png)
+
 [See DEBUGGING.md.](DEBUGGING.md)
 
 # License
