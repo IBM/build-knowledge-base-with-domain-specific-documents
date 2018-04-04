@@ -1,4 +1,4 @@
-# build-knowledge-base-with-domain-specific-documents
+# Build-knowledge-base-with-domain-specific-documents
 > Data Science Experience is now Watson Studio. Although some images in this code pattern may show the service as Data Science Experience, the steps and processes will still work.
 
 The Composite code pattern has been designed to give a detailed description to developers who are keen on building the domain specific Knowledge graph. The Code Pattern covers and addresses all the aspects to it, right from the challenges that one can come across while building the knowledge graph and how to resolve them,  how to fine tuning this code pattern to meet their requirements. This Code pattern makes use of the [Watson NLU](https://natural-language-understanding-demo.ng.bluemix.net/), 
