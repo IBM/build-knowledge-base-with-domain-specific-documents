@@ -15,6 +15,12 @@ What make the Code Pattern valuable is its ability to process the tables in docx
 
 ![](doc/source/images/architecture.png)
 
+1. The unstructured text data from the docx files(html tables and free floating text) that need to be analyzed and correlated is extracted from the documents using custom python code.
+2. The text is classified using NLU and also tagged using the code pattern - [Extend Watson text classification](https://github.com/IBM/watson-document-classifier)
+3. The text is correlated with other text using the code pattern - [Correlate documents](https://github.com/IBM/watson-document-co-relation)  
+4. The results are filtered using custom python code.
+5. The knowledge graph is constructed.
+
 ## Included components
 
 * [IBM Watson Studio](https://www.ibm.com/cloud/watson-studio): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
