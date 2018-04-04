@@ -1,0 +1,23 @@
+{
+	"configuration": {
+		"relations": {
+			"rules":[
+				{
+					"type":"d_regex",
+					"tag":"StudiedAt",
+					"pattern":".*(<Keyword:.*>).(studied at).(<Keyword:\\w+\\s\\w*\\s\\w*>)"
+						
+						
+					
+				},	
+				{
+					"type":"d_regex",
+					"tag":"Pioneered",
+					"pattern":".*(<Keyword:.*>).(who pioneered).(<Keyword:\\w+\\s\\w*\\s\\w*>)"
+				}
+			]
+		
+		}
+	}
+
+}
