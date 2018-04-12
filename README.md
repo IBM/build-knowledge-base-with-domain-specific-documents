@@ -31,12 +31,14 @@ What make the Code Pattern valuable is its ability to process the tables in docx
 
 This Composite Code Pattern is intended to help Developers, Data Scientists to give structure to the unstructured data they own which can shape their analysis significantly such that communicating with data will be much easier for further processing and can yield better Insights.  
 
+**[BK] The above para needs to be re-worded. Sentences are long. Break it into 2 or more sentences.**
+
 ![](doc/source/images/architecture.png)
 
-1. The unstructured text data from the docx files(html tables and free floating text) that need to be analyzed and correlated is extracted from the documents using custom python code.
-2. The text is classified using NLU and also tagged using the code pattern - [Extend Watson text classification](https://github.com/IBM/watson-document-classifier)
+1. The unstructured text data from the docx files(html tables and free floating text) that need to be analyzed and correlated is extracted from the documents using custom python code.**[BK] Remove custom and say Python**
+2. The text is classified using NLU **[BK] Say Watson NLU** and also tagged using the code pattern - [Extend Watson text classification](https://github.com/IBM/watson-document-classifier)
 3. The text is correlated with other text using the code pattern - [Correlate documents](https://github.com/IBM/watson-document-co-relation)  
-4. The results are filtered using custom python code.
+4. The results are filtered using custom python code.**[BK] Remove custom and say Python**
 5. The knowledge graph is constructed.
 
 ## Included components
@@ -98,9 +100,9 @@ Create the following IBM Cloud service and name it wdc-NLU-service:
 
 * From the `My Projects > Default` page, Use `Find and Add Data` (look for the `10/01` icon)
 and its `Files` tab.
-* Click `browse` and navigate to this repo `build-knowledge-base-with-domain-specific-documents/Data/Archive.zip`
-* Click `browse` and navigate to this repo `build-knowledge-base-with-domain-specific-documents//Configuration/config_relations.txt`
-* Click `browse` and navigate to this repo `build-knowledge-base-with-domain-specific-documents/Configuration/config_classification.txt`
+* Click `browse` and navigate to this repo **[BK] Should it be file instead of repo** `build-knowledge-base-with-domain-specific-documents/Data/Archive.zip`
+* Click `browse` and navigate to this repo **[BK] Should it be file instead of repo** `build-knowledge-base-with-domain-specific-documents//Configuration/config_relations.txt`
+* Click `browse` and navigate to this repo **[BK] Should it be file instead of repo** `build-knowledge-base-with-domain-specific-documents/Configuration/config_classification.txt`
 
 ![](doc/source/images/add_file.png)
 
@@ -167,12 +169,12 @@ There are several ways to execute the code cells in your notebook:
     time, or repeatedly at your specified interval.
 
 ## 7. Analyze the results
-Check the process section of the notebook. First the configuration files(config_classification.txt and config_relations.txt) are loaded. The unstructured information is extracted using python package mammoth. Mammoth converts the docx files to html from where text in the tables is also analysed along with free floating text. The results from NLU are analyzed and augmented using the configuration files. The entities are augmented using the `config_classification.txt` and the relationships are augmented using `config_relations.txt`. The results are then filtered and formatted to pick up the relevant relations and discard the ones which are not relevant. The filtered relaionships are sent to draw graph function in the notebook, which will construct the knowledge graph.
+Check the process section of the notebook.**[BK] Remove the line. You could say - In the Section. Process of the notebook, the files are loaded...** First the configuration files(config_classification.txt and config_relations.txt) are loaded. The unstructured information is extracted using python package mammoth. Mammoth converts the docx files to html from where text in the tables is also analysed along with free floating text. The results from NLU **[BK] Watson NLU** are analyzed and augmented using the configuration files. The entities are augmented using the `config_classification.txt` and the relationships are augmented using `config_relations.txt`. The results are then filtered and formatted to pick up the relevant relations and discard the ones which are not relevant. The filtered relaionships are sent to draw graph function in the notebook, which will construct the knowledge graph.
 
 ![](doc/source/images/graph.png)
 
 # Troubleshooting
-
+**[BK] Move the troubleshooting section to debugging.md**
 You might encounter this nltk error, `package not found`. To avoid that please follow the steps given below:
 
 1. run nltk.download() :
