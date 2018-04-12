@@ -1,17 +1,29 @@
 # Build-knowledge-base-with-domain-specific-documents
 > Data Science Experience is now Watson Studio. Although some images in this code pattern may show the service as Data Science Experience, the steps and processes will still work.
+[BK] Since this pattern is not published, please see if you can give Watson Studio specific instructions
 
-The Composite code pattern has been designed to give a detailed description to developers who are keen on building the domain specific Knowledge graph. The Code Pattern covers and addresses all the aspects to it, right from the challenges that one can come across while building the knowledge graph and how to resolve them,  how to fine tuning this code pattern to meet their requirements. This Code pattern makes use of the [Watson NLU](https://natural-language-understanding-demo.ng.bluemix.net/), 
+[BK] To start with give a background of the problem. Take the example of the data you took for the pattern to explain it better.
+The Composite code pattern has been designed to give a detailed description to developers who are keen on building the domain specific Knowledge graph. The Code Pattern covers and addresses all the aspects to it, right from the challenges that one can come across while building the knowledge graph and how to resolve them,  how to fine tuning this code pattern to meet their requirements. 
+[BK] The above para needs rewording - The composite pattern provides a methodology to build a knowledge graph from documents.
+
+This Code pattern makes use of the [Watson NLU](https://natural-language-understanding-demo.ng.bluemix.net/), 
 [Extend Watson text Classification](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) Code Pattern to augment the entities picked by nlu, and [Watson Document Corelation](https://developer.ibm.com/code/patterns/watson-document-correlation/) from different sources to augment the relations picked by nlu. Basically, it makes the best of both the worlds- rule based and dynamic Watson NLU. Then the results are filtered to meet the needs of that domain.
+[BK] Separate the patterns and technologies uses. You can skip details.
 
 In this journey we will demonstrate:
+[BK] Change journey to Pattern. 
 * Extracting the information from the documents- free-floating text and Table text.
 * Cleaning the data.
 * Finding the entities and augment the results using extend watson classification.	
+[BK] Use [Extend Watson text Classification](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) pattern to extract entities from documents
 * How to find the relationships between the entities and augment the results by correferencing and correlation using Watson Document Correlation.
+[BK] Use [Watson Document Corelation](https://developer.ibm.com/code/patterns/watson-document-correlation/) pattern to extract relationships between entities
 * Build a knowledge base(graph) from it.
 
-What make the Code Pattern valuable is its ability to process the tables in docx files along free-floating text and then showcasing the entire strategy on how to make use of both the results of the real-time analysis by Watson NLU and rules defined by a SME. This Composite Code Pattern is intended to help Developers, Data Scientists to give structure to the unstructured data they own which can shape their analysis significantly such that communicating with data will be much easier for further processing and can yield better Insights.  
+
+What make the Code Pattern valuable is its ability to process the tables in docx files along free-floating text and then showcasing the entire strategy on how to make use of both the results of the real-time analysis by Watson NLU and rules defined by a SME.
+[BK] Give the expansion - Subject matter expert or Domain expert.
+This Composite Code Pattern is intended to help Developers, Data Scientists to give structure to the unstructured data they own which can shape their analysis significantly such that communicating with data will be much easier for further processing and can yield better Insights.  
 
 ![](doc/source/images/architecture.png)
 
