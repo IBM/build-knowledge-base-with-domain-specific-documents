@@ -1,24 +1,36 @@
 # Build-knowledge-base-with-domain-specific-documents
 > Data Science Experience is now Watson Studio. Although some images in this code pattern may show the service as Data Science Experience, the steps and processes will still work.
 
-The Composite code pattern has been designed to give a detailed description to developers who are keen on building the domain specific Knowledge graph. The Code Pattern covers and addresses all the aspects to it, right from the challenges that one can come across while building the knowledge graph and how to resolve them,  how to fine tuning this code pattern to meet their requirements. This Code pattern makes use of the [Watson NLU](https://natural-language-understanding-demo.ng.bluemix.net/), 
-[Extend Watson text Classification](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) Code Pattern to augment the entities picked by nlu, and [Watson Document Corelation](https://developer.ibm.com/code/patterns/watson-document-correlation/) from different sources to augment the relations picked by nlu. Basically, it makes the best of both the worlds- rule based and dynamic Watson NLU. Then the results are filtered to meet the needs of that domain.
+**[BK] Since this pattern is not published, please see if you can give Watson Studio specific instructions**
 
-In this journey we will demonstrate:
+**[BK] To start with give a background of the problem. Take the example of the data you took for the pattern to explain it better.**
+
+The analysis of the unstructured Data starts with a conventional process to somehow convert it into a semi-structured format, which is much easier to perform the analysis on. One of the challenge to process unstructured documents is how do we process the information stored in the tables of a document. Then, finally construct the domain specific knowledge base from both free-floating text and 
+
+The composite pattern provides a methodology to build a knowledge graph from documents. The Composite code pattern has been designed to give a detailed description to developers who are keen on building the domain specific Knowledge graph. The Code Pattern covers and addresses all the aspects to it, right from the challenges that one can come across while building the knowledge graph and how to resolve them,  how to fine tuning this code pattern to meet their requirements. 
+
+This Code pattern makes use of the [Watson NLU](https://natural-language-understanding-demo.ng.bluemix.net/), 
+[Extend Watson text Classification](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) Code Pattern to augment the entities picked by nlu, and [Watson Document Corelation](https://developer.ibm.com/code/patterns/watson-document-correlation/) from different sources to augment the relations picked by NLU. To convert the docx files to html using python package mammoth. Basically, It makes the best of both the worlds- rule based and dynamic Watson NLU. Then the results are filtered to meet the needs of that domain.
+
+
+In this Pattern we will demonstrate:
+
 * Extracting the information from the documents- free-floating text and Table text.
-* Cleaning the data.
-* Finding the entities and augment the results using extend watson classification.	
-* How to find the relationships between the entities and augment the results by correferencing and correlation using Watson Document Correlation.
+* Cleaning the data](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) pattern to extract entities from documents
+* Use [Watson Document Corelation](https://developer.ibm.com/codetterns/watson-document-correlation/) pattern to extract relationships between entities*
 * Build a knowledge base(graph) from it.
+/pa
+What make the Code Pattern valuable is its ability to process the tables in docx files along free-floating text and then showcasing the entire strategy on how to make use of both the results of the real-time analysis by Watson NLU and rules defined by a Subject matter expert or Domain expert.
 
-What make the Code Pattern valuable is its ability to process the tables in docx files along free-floating text and then showcasing the entire strategy on how to make use of both the results of the real-time analysis by Watson NLU and rules defined by a SME. This Composite Code Pattern is intended to help Developers, Data Scientists to give structure to the unstructured data they own which can shape their analysis significantly such that communicating with data will be much easier for further processing and can yield better Insights.  
+This Composite Code Pattern is intended to help Developers, Data Scientists to give structure to the unstructured data. Using which they can shape their analysis significantly such that communicating with data will be much easier for further processing and can yield better Insights. 
+
 
 ![](doc/source/images/architecture.png)
 
-1. The unstructured text data from the docx files(html tables and free floating text) that need to be analyzed and correlated is extracted from the documents using custom python code.
-2. The text is classified using NLU and also tagged using the code pattern - [Extend Watson text classification](https://github.com/IBM/watson-document-classifier)
+1. The unstructured text data from the docx files(html tables and free floating text) that need to be analyzed and correlated is extracted from the documents using python code.
+2. Use Extend Watson text Classification text is classified using Watson NLU and also tagged using the code pattern - [Extend Watson text classification](https://github.com/IBM/watson-document-classifier)
 3. The text is correlated with other text using the code pattern - [Correlate documents](https://github.com/IBM/watson-document-co-relation)  
-4. The results are filtered using custom python code.
+4. The results are filtered using python code.
 5. The knowledge graph is constructed.
 
 ## Included components
@@ -80,9 +92,9 @@ Create the following IBM Cloud service and name it wdc-NLU-service:
 
 * From the `My Projects > Default` page, Use `Find and Add Data` (look for the `10/01` icon)
 and its `Files` tab.
-* Click `browse` and navigate to this repo `build-knowledge-base-with-domain-specific-documents/Data/Archive.zip`
-* Click `browse` and navigate to this repo `build-knowledge-base-with-domain-specific-documents//Configuration/config_relations.txt`
-* Click `browse` and navigate to this repo `build-knowledge-base-with-domain-specific-documents/Configuration/config_classification.txt`
+* Click `browse` and navigate to [Archive.zip](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/Data)
+* Click `browse` and navigate to [config_relations.txt](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/Configuration)
+* Click `browse` and navigate to [config_classification.txt](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/Configuration)
 
 ![](doc/source/images/add_file.png)
 
@@ -149,26 +161,11 @@ There are several ways to execute the code cells in your notebook:
     time, or repeatedly at your specified interval.
 
 ## 7. Analyze the results
-Check the process section of the notebook. First the configuration files(config_classification.txt and config_relations.txt) are loaded. The unstructured information is extracted using python package mammoth. Mammoth converts the docx files to html from where text in the tables is also analysed along with free floating text. The results from NLU are analyzed and augmented using the configuration files. The entities are augmented using the `config_classification.txt` and the relationships are augmented using `config_relations.txt`. The results are then filtered and formatted to pick up the relevant relations and discard the ones which are not relevant. The filtered relaionships are sent to draw graph function in the notebook, which will construct the knowledge graph.
+In the Section. Process of the notebook, the files are loaded. First the configuration files(config_classification.txt and config_relations.txt) are loaded. The unstructured information is extracted using python package mammoth. Mammoth converts the docx files to html from where text in the tables is also analysed along with free floating text. The results from Watson NLU are analyzed and augmented using the configuration files. The entities are augmented using the `config_classification.txt` and the relationships are augmented using `config_relations.txt`. The results are then filtered and formatted to pick up the relevant relations and discard the ones which are not relevant. The filtered relaionships are sent to draw graph function in the notebook, which will construct the knowledge graph.
 
 ![](doc/source/images/graph.png)
 
 # Troubleshooting
-
-You might encounter this nltk error, `package not found`. To avoid that please follow the steps given below:
-
-1. run nltk.download() :
-2. Type `d` and press enter 
-
-![](doc/source/images/step1.png)
-
-3. Type `all` and press enter
-
-![](doc/source/images/step2.png)
-
-for streaming body object :
-Make sure the StreamingBody object variable in cell 2.2 is mentioned in the highlighted space.
-![](doc/source/images/streaming.png)
 
 [See DEBUGGING.md.](DEBUGGING.md)
 
