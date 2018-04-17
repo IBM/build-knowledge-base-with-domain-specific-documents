@@ -10,14 +10,14 @@ The analysis of the unstructured Data starts with a conventional process to some
 The composite pattern provides a methodology to build a knowledge graph from documents. The Composite code pattern has been designed to give a detailed description to developers who are keen on building the domain specific Knowledge graph. The Code Pattern covers and addresses all the aspects to it, right from the challenges that one can come across while building the knowledge graph and how to resolve them,  how to fine tuning this code pattern to meet their requirements. 
 
 This Code pattern makes use of the [Watson NLU](https://natural-language-understanding-demo.ng.bluemix.net/), 
-[Extend Watson text Classification](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) Code Pattern to augment the entities picked by nlu, and [Watson Document Corelation](https://developer.ibm.com/code/patterns/watson-document-correlation/) from different sources to augment the relations picked by NLU. To convert the docx files to html using python package mammoth. Basically, It makes the best of both the worlds- rule based and dynamic Watson NLU. Then the results are filtered to meet the needs of that domain.
+[Extend Watson text Classification](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) Code Pattern to augment the entities picked by nlu, and [Watson Document Correlation](https://developer.ibm.com/code/patterns/watson-document-correlation/) from different sources to augment the relations picked by NLU. To convert the docx files to html using python package mammoth. Basically, It makes the best of both the worlds- rule based and dynamic Watson NLU. Then the results are filtered to meet the needs of that domain.
 
 
 In this Pattern we will demonstrate:
 
 * Extracting the information from the documents- free-floating text and Table text.
-* Cleaning the data](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) pattern to extract entities from documents
-* Use [Watson Document Corelation](https://developer.ibm.com/codetterns/watson-document-correlation/) pattern to extract relationships between entities*
+* [Cleaning the data](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) pattern to extract entities from documents
+* Use [Watson Document Correlation](https://developer.ibm.com/codetterns/watson-document-correlation/) pattern to extract relationships between entities*
 * Build a knowledge base(graph) from it.
 /pa
 What make the Code Pattern valuable is its ability to process the tables in docx files along free-floating text and then showcasing the entire strategy on how to make use of both the results of the real-time analysis by Watson NLU and rules defined by a Subject matter expert or Domain expert.
@@ -27,7 +27,7 @@ This Composite Code Pattern is intended to help Developers, Data Scientists to g
 
 ![](doc/source/images/architecture.png)
 
-1. The unstructured text data from the docx files(html tables and free floating text) that need to be analyzed and correlated is extracted from the documents using python code.
+1. The unstructured text data from the docx files (html tables and free floating text) that need to be analyzed and correlated is extracted from the documents using python code.
 2. Use Extend Watson text Classification text is classified using Watson NLU and also tagged using the code pattern - [Extend Watson text classification](https://github.com/IBM/watson-document-classifier)
 3. The text is correlated with other text using the code pattern - [Correlate documents](https://github.com/IBM/watson-document-co-relation)  
 4. The results are filtered using python code.
@@ -108,7 +108,7 @@ Select the cell below `2.1 Add your service credentials from IBM Cloud for the W
 
 Open the Watson Natural Language Understanding service in your [IBM Cloud Dashboard](https://console.bluemix.net/dashboard/services) and click on your service, which you should have named `wdc-NLU-service`.
 
-Once the service is open click the `Service Credentials` menu on the left.
+Once the service is open, click the `Service Credentials` menu on the left.
 
 ![](doc/source/images/service_credentials.png)
 
