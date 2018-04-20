@@ -9,13 +9,11 @@ Raw Text have lots of useful information which can give interesting insights abo
 
 ![](doc/source/images/example.jpg)
 
-In this Code pattern, we are trying to address two major problems one can come across while processing the raw text(unstructured data). In the image above, there is a free-floating text about an oncologist Suresh H. Advani and the table consists of the awards, he has been awarded by various organisations. And also the facts that can be inferred about various entities in this document.
+In this Code pattern, we are trying to address two major problems one can come across while processing the raw text(unstructured data). In the image above, there is a free-floating text about an oncologist Suresh H. Advani and the table consists of the awards, he has been awarded by various organisations. And also the facts that can be inferred about various entities in this document. The pattern provides a methodology to build a knowledge graph from the information extracted.The Code Pattern covers and addresses all the aspects to it, right from the challenges that one can come across while building the knowledge graph and how to resolve them,  how to fine tuning this code pattern to meet their requirements. 
 
 One of the challenge to process unstructured documents like the image above is how do we process the information stored in the tables of a document as well along with free-floating text. Then, finally construct the domain specific knowledge base from the mined information. So to process the information stored in the tables as well as free floating text, this pattern makes use of the `python package mammoth` to convert docx files(unsturctured) to html(semi-sturctured format) and then analyzing it further using [Watson NLU Demo](https://natural-language-understanding-demo.ng.bluemix.net/). 
 
 Another challenge this Code Pattern addresses is, there are lots of keywords in the text are not picked up as an entity by Watson NLU. This is because Watson NLU has been trained on a default corpus of documents. For the same reason, mining information from set of domain-specific documents is very challenging task to do using just Watson NLU. This pattern discusses the strategy on how to augment the results given by Watson NLU with the rules-based approach to pick entities of that domain and their relations with each other. This Code Pattern makes use of the [Extend Watson text Classification](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) Code Pattern to augment the entities picked by nlu, and [Watson Document Corelation](https://developer.ibm.com/code/patterns/watson-document-correlation/) from different sources to augment the relations picked by NLU. One just have to configure the configuration files and they get the benefits of both the worlds. 
-
-The pattern provides a methodology to build a knowledge graph from documents. The Code Pattern has been designed to give a detailed description to developers who are keen on building the domain specific Knowledge graph. The Code Pattern covers and addresses all the aspects to it, right from the challenges that one can come across while building the knowledge graph and how to resolve them,  how to fine tuning this code pattern to meet their requirements. 
 
 In this Pattern we will demonstrate:
 
@@ -26,7 +24,7 @@ In this Pattern we will demonstrate:
 
 What make the Code Pattern valuable is its ability to process the tables in docx files along free-floating text and then showcasing the entire strategy on how to make use of both the results of the real-time analysis by Watson NLU and rules defined by a Subject matter expert or Domain expert.
 
-This Composite Code Pattern is intended to help Developers, Data Scientists to give structure to the unstructured data. Using which they can shape their analysis significantly such that communicating with data will be much easier for further processing and can yield better Insights. 
+This Code Pattern is intended to help Developers, Data Scientists to give structure to the unstructured data. Using which they can shape their analysis significantly such that communicating with data will be much easier for further processing and can yield better Insights. 
 
 
 ![](doc/source/images/architecture.png)
