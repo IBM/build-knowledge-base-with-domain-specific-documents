@@ -27,7 +27,7 @@ What make the Code Pattern valuable is its ability to process the tables in docx
 This Code Pattern is intended to help Developers, Data Scientists to give structure to the unstructured data. Using which they can shape their analysis significantly such that communicating with data will be much easier for further processing and can yield better Insights. 
 
 
-![](doc/source/images/architecture.png)qw 
+![](doc/source/images/architecture.png) 
 
 1. The unstructured text data from the docx files(html tables and free floating text) that need to be analyzed and correlated is extracted from the documents using python code.
 2. Use Extend Watson text Classification text is classified using Watson NLU and also tagged using the code pattern - [Extend Watson text classification](https://github.com/IBM/watson-document-classifier)
