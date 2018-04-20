@@ -5,7 +5,7 @@
 
 **[BK] To start with give a background of the problem. Take the example of the data you took for the pattern to explain it better.**
 
-Raw Text have lots of useful information which can give interesting insights about the domain or a person or a department. The best and not so best part of it is its flooded everywhere. Our brain can process raw text easily, quickly it reads word by word and makes sense out of it. How do we make machines read that raw text and make it understand about the context of it. The analysis of the unstructured Data starts with a conventional process to somehow convert it into a semi-structured format, which is much easier to perform the analysis on. 
+Raw Text have lots of useful information which can give interesting insights about the domain or a person or a department. The best and not so best part of it is its flooded everywhere. Our brain can process raw text easily, reads it quickly word by word and makes sense out of it. How do we make machines read that raw text and train it on the context. The analysis of the unstructured Data starts with a conventional process to somehow convert it into a semi-structured format, which is much easier to perform the analysis on. 
 
 ![](doc/source/images/example.jpg)
 
