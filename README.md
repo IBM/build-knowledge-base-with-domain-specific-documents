@@ -7,13 +7,13 @@
 
 In any business, word documents are a common occurence. They contain information in the form of raw text, tables and images. All of them contain important facts. 
 
-In this Code pattern, we address the problem of extracting knowledge out of **text and tables** in word documents.
+In the figure below, there is a textual information about an oncologist Suresh H. Advani present in a word document. The table consists of the awards that he has been awarded by various organisations. 
 
 ![](doc/source/images/example.jpg)
 
-In the image above, there is a textual information about an oncologist Suresh H. Advani. The table consists of the awards that he has been awarded by various organisations. 
+
  
-The pattern demonstrates a methodology to extract knowledge from text and tables in documents. A knowledge graph is built from the knowledge extracted making the knowledge queryable.
+In this Code pattern, we address the problem of extracting knowledge out of **text and tables** in word documents. A knowledge graph is built from the knowledge extracted making the knowledge queryable.
 
 Some of the challenges in extracting knowledge from word documents are:
 1. The Natural Language Processing(NLP) tools cannot access the text inside word documents. The word documents need to be converted to plain text.
