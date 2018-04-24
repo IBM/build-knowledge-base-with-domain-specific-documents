@@ -17,7 +17,7 @@ In this Code pattern, we address the problem of extracting knowledge out of **te
 
 Some of the challenges in extracting knowledge from word documents are:
 1. The Natural Language Processing(NLP) tools cannot access the text inside word documents. The word documents need to be converted to plain text.
-2. There are business and domain experts who understand the keywords and entities that are present in the documents. But training the NLP tool to extract domain specific keywords and entities is a big effort. Also, it is impractical in many scenarios to find sufficient number of documents and train the NLP tool to process the text. 
+2. There are business and domain experts who understand the keywords and entities that are present in the documents. But training the NLP tool to extract domain specific keywords and entities is a big effort. Also, it is impractical in many scenarios to find sufficient number of documents to train the NLP tool to process the text. 
 
 This pattern uses the below methodology to overcome the challenges:
 * The `python package mammoth` is used to convert docx files to html(semi-structured format). 
