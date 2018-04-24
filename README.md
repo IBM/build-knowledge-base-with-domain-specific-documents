@@ -16,7 +16,7 @@ In the figure below, there is a textual information about an oncologist Suresh H
 In this Code pattern, we address the problem of extracting knowledge out of **text and tables** in word documents. A knowledge graph is built from the knowledge extracted making the knowledge queryable.
 
 Some of the challenges in extracting knowledge from word documents are:
-1. The Natural Language Processing(NLP) tools cannot access the text inside word documents. The word documents need to be converted to plain text.
+1. The Natural Language Processing(NLP) tools cannot access the text inside word documents. The word documents need to be converted to plain text files.
 2. There are business and domain experts who understand the keywords and entities that are present in the documents. But training the NLP tool to extract domain specific keywords and entities is a big effort. Also, it is impractical in many scenarios to find sufficient number of documents to train the NLP tool to process the text. 
 
 This pattern uses the below methodology to overcome the challenges:
