@@ -8,7 +8,9 @@
 In any business, word documents are a common occurence. They contain information in the form of raw text, tables and images. All of them contain important facts. 
 
 In the figure below, there is a textual information about an oncologist Suresh H. Advani present in a word document. The table consists of the awards that he has been awarded by various organisations. 
-**[BK] Change the image a bit. Put the text and table in a word doc and take a screen shot. On the right, call it knowledge. **
+
+**[BK] Change the image a bit. Put the text and table in a word doc and take a screen shot. On the right, call it knowledge.**
+
 ![](doc/source/images/example.jpg)
 
 
