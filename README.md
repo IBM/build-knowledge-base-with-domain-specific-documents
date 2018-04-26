@@ -11,7 +11,7 @@ In the figure below, there is a textual information about an oncologist Suresh H
 
 **[BK] Change the image a bit. Put the text and table in a word doc and take a screen shot. On the right, call it knowledge.**
 
-![](doc/source/images/example.jpg)
+![](doc/source/images/example.png)
 
 
  
