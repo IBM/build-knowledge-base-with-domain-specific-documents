@@ -5,15 +5,30 @@
 
 **[BK] To start with give a background of the problem. Take the example of the data you took for the pattern to explain it better.**
 
-Raw Text have lots of useful information which can give interesting insights about the domain or a person or a department. The best and not so best part of it is its flooded everywhere. Our brain can process raw text easily, reads it quickly word by word and makes sense out of it. How do we make machines read that raw text and train it on the context. The analysis of the unstructured Data starts with a conventional process to somehow convert it into a semi-structured format, which is much easier to perform the analysis on. 
+In any business, word documents are a common occurence. They contain information in the form of raw text, tables and images. All of them contain important facts. 
 
-![](doc/source/images/example.jpg)
+In the figure below, there is a textual information about an oncologist Suresh H. Advani present in a word document. The table consists of the awards that he has been awarded by various organisations. 
 
-In this Code pattern, we are trying to address two major problems while processing the raw text(unstructured data). In the image above, there is a free-floating text about an oncologist Suresh H. Advani, the table consists of the awards that he has been awarded by various organisations and the facts that can be inferred about various entities in this document. The pattern provides a methodology to build a knowledge graph from the information extracted.This Code Pattern covers and addresses all the aspects to it, right from the challenges while building the knowledge graph and how to fine tuning this code pattern to meet the domain specific requirements. 
+**[BK] Change the image a bit. Put the text and table in a word doc and take a screen shot. On the right, call it knowledge.**
 
-One of the challenge to process unstructured documents like the image above is to process the information stored in the tables of a document as well, along with free-floating text. Then construct the domain specific knowledge base from the mined information. To process the information stored in the tables as well as free floating text, this pattern makes use of the `python package mammoth` which converts docx files(unsturctured) to html(semi-sturctured format) and then analyze it further using [Watson NLU Demo](https://natural-language-understanding-demo.ng.bluemix.net/). 
+![](doc/source/images/example.png)
 
-Another challenge this Code Pattern addresses is, there are lots of keywords in the text that are not picked up as an entity by Watson NLU. This is because Watson NLU has been trained on a default corpus of documents. For the same reason, mining information from set of domain-specific documents is very challenging task to do using just Watson NLU. This pattern discusses the strategy on how to augment the results given by Watson NLU with the rules-based approach to pick entities of that domain and their relations with each other. This Code Pattern makes use of the [Extend Watson text Classification](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) Code Pattern to augment the entities picked by nlu, and [Watson Document Corelation](https://developer.ibm.com/code/patterns/watson-document-correlation/) from different sources to augment the relations picked by NLU. We just have to configure the configuration files and they get the benefits of both the worlds. 
+
+ 
+In this Code pattern, we address the problem of extracting knowledge out of **text and tables** in word documents. A knowledge graph is built from the knowledge extracted making the knowledge queryable.
+
+Some of the challenges in extracting knowledge from word documents are:
+1. The Natural Language Processing(NLP) tools cannot access the text inside word documents. The word documents need to be converted to plain text files.
+2. There are business and domain experts who understand the keywords and entities that are present in the documents. But training the NLP tool to extract domain specific keywords and entities is a big effort. Also, it is impractical in many scenarios to find sufficient number of documents to train the NLP tool to process the text. 
+
+This pattern uses the below methodology to overcome the challenges:
+* The `python package mammoth` is used to convert docx files to html(semi-structured format). 
+* Watson Natural Language Understanding(Watson NLU) is used to extract the common entities
+* A rules based approach that is explained in the code pattern [Extend Watson text Classification](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) is used to augment the output from Watson NLU. The rules based approach does not require training documents or training effort. A configuration file is taken as input by the algorithm. This file needs to be configured by the domain expert.
+* Watson NLU is used to extract the relations between entities
+* A rules based approach that is explained in the code pattern [Watson Document Corelation](https://developer.ibm.com/code/patterns/watson-document-correlation/) is used to augment the output from Watson NLU. A configuration file is taken as input by the algorithm. This file needs to be configured by the domain expert.
+
+The best of both worlds - training and rules based approach is used to extract knowledge out of documents.
 
 In this Pattern we will demonstrate:
 
@@ -22,9 +37,11 @@ In this Pattern we will demonstrate:
 * Use [Watson Document Corelation](https://developer.ibm.com/codetterns/watson-document-correlation/) pattern to extract relationships between entities*
 * Build a knowledge base(graph) from it.
 
-What make the Code Pattern valuable is its ability to process the tables in docx files along free-floating text and then showcasing the entire strategy on how to make use of both the results of the real-time analysis by Watson NLU and rules defined by a Subject matter expert or Domain expert.
+What makes this Code Pattern valuable:
+* The ability to process the tables in docx files along with free-floating text. 
+* And also the strategy on combining the results of the real-time analysis by Watson NLU and the results from the rules defined by a Subject matter expert or Domain expert.
 
-This Code Pattern is intended to help Developers, Data Scientists to give structure to the unstructured data. Using which they can shape their analysis significantly such that communicating with data will be much easier for further processing and can yield better Insights. 
+This Code Pattern is intended to help Developers, Data Scientists to give structure to the unstructured data. This can be used to shape their analysis significantly and use the data for further processing to get better Insights. 
 
 
 ![](doc/source/images/architecture.png) 
