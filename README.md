@@ -33,7 +33,7 @@ The best of both worlds - training and rules based approach is used to extract k
 In this Pattern we will demonstrate:
 
 * Extracting the information from the documents- free-floating text and Table text.
-* Cleaning the data](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) pattern to extract entities from documents
+* [Cleaning the data](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) pattern to extract entities from documents
 * Use [Watson Document Corelation](https://developer.ibm.com/codetterns/watson-document-correlation/) pattern to extract relationships between entities*
 * Build a knowledge base(graph) from it.
 
