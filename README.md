@@ -1,15 +1,13 @@
 # Build-knowledge-base-with-domain-specific-documents
 > Data Science Experience is now Watson Studio. Although some images in this code pattern may show the service as Data Science Experience, the steps and processes will still work.
 
-**[BK] Since this pattern is not published, please see if you can give Watson Studio specific instructions**
 
-**[BK] To start with give a background of the problem. Take the example of the data you took for the pattern to explain it better.**
 
 In any business, word documents are a common occurence. They contain information in the form of raw text, tables and images. All of them contain important facts. 
 
 In the figure below, there is a textual information about an oncologist Suresh H. Advani present in a word document. The table consists of the awards that he has been awarded by various organisations. 
 
-**[BK] Change the image a bit. Put the text and table in a word doc and take a screen shot. On the right, call it knowledge.**
+
 
 ![](doc/source/images/example.png)
 
