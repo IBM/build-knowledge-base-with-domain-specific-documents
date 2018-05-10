@@ -50,6 +50,9 @@ This Code Pattern is intended to help Developers, Data Scientists to give struct
 4. The results are filtered using python code.
 5. The knowledge graph is constructed.
 
+## Video
+https://youtu.be/lC2-h2ac_Jg
+
 ## Included components
 
 * [IBM Watson Studio](https://www.ibm.com/cloud/watson-studio): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
