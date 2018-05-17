@@ -1,0 +1,80 @@
+{
+  "configuration": {
+    "classification": {
+      "stages": [
+        {
+          "name": "Base Tagging",
+          "steps": [
+            {
+              "type": "keywords",
+              "keywords": [
+                {
+                  "tag": "Passion",
+                  "text": "Science"
+                },
+                {
+                  "tag": "Subjects",
+                  "text": "cosmology"
+                }
+              ]
+            },
+            {
+              "type": "d_regex",
+              "d_regex": [
+                {
+                  "tag": "Date",
+                  "pattern": "(\\d+/\\d+/\\d+)"
+                }
+              ]
+            },
+            {
+              "type": "d_regex",
+              "d_regex": [
+                {
+                  "tag": "Email",
+                  "pattern": "\\b[\\w.-]+?@\\w+?\\.\\w+?\\b"
+                }
+              ]
+            },
+            {
+              "type": "d_regex",
+              "d_regex": [
+                {
+                  "tag": "PhoneNumber",
+                  "pattern": "[0-9]{10}"
+                }
+              ]
+            },
+            {
+              "type": "chunking",
+              "chunk": [
+                {
+                  "tag": "NP",
+                  "pattern": "NP:{<DT>?<JJ>*<NN>}"
+                },
+                {
+                  "tag": "NAME",
+                  "pattern": "NAME:{<NNP>+}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Domain Tagging",
+          "steps": [
+            {
+              "type": "d_regex",
+              "d_regex": [
+                {
+                  "tag": "Year",
+                  "pattern": "[0-9]{4}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
