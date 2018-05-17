@@ -73,12 +73,6 @@ described in detail below.
 
 1. [Create IBM Cloud services](#1-create-ibm-cloud-services)
 1. [Run using a Jupyter notebook in the IBM Watson Studio](#2-run-using-a-jupyter-notebook-in-the-ibm-watson-studio)
-    1. [Sign up for Watson Studio](#21-sign-up-for-watson-studio)
-    1. [Create IBM Cloud services](#22-create-ibm-cloud-services)
-    1. [Create the notebook](#23-create-the-notebook)
-    1. [Add the data and configuraton file](#24-add-the-data-and-configuration-file)
-    1. [Update the notebook with service credentials](#25-update-the-notebook-with-service-credentials)
-    1. [Run the notebook](#26-run-the-notebook)
 1. [Analyze the results](#3-analyze-the-results)
 
 
@@ -93,7 +87,7 @@ Create the following IBM Cloud service and name it wdc-NLU-service:
 
 ## 2. Run using a Jupyter notebook in the IBM Watson Studio
 
-1. [Create a new Watson Studio project](#1-create-a-new-watson-studio-project)
+1. [Create a new Watson Studio project](#21-create-a-new-watson-studio-project)
 2. [Associate a Spark service](#2-associate-a-spark-service)
 3. [Create the notebook](#3-create-the-notebook)
 4. [Run the notebook](#4-run-the-notebook)
