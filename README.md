@@ -3,7 +3,7 @@
 
 
 
-In any business, word documents are a common occurence. They contain information in the form of raw text, tables and images. All of them contain important facts. 
+In any business, word documents are a common occurence. They contain information in the form of raw text, tables and images. All of them contain important facts. The documents used, are created for the sake of this Code Pattern. The content for both the documents about oncology and the famous oncologist Suresh H. Advani is taken from wikipedia. Find these documents in data folder.
 
 In the figure below, there is a textual information about an oncologist Suresh H. Advani present in a word document. The table consists of the awards that he has been awarded by various organisations. 
 
@@ -20,7 +20,7 @@ Some of the challenges in extracting knowledge from word documents are:
 2. There are business and domain experts who understand the keywords and entities that are present in the documents. But training the NLP tool to extract domain specific keywords and entities is a big effort. Also, it is impractical in many scenarios to find sufficient number of documents to train the NLP tool to process the text. 
 
 This pattern uses the below methodology to overcome the challenges:
-* The `python package mammoth` is used to convert docx files to html(semi-structured format). 
+* The [`python package mammoth`](https://pypi.org/project/mammoth/) is used to convert `.docx` files to html (semi-structured format). 
 * Watson Natural Language Understanding(Watson NLU) is used to extract the common entities
 * A rules based approach that is explained in the code pattern [Extend Watson text Classification](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) is used to augment the output from Watson NLU. The rules based approach does not require training documents or training effort. A configuration file is taken as input by the algorithm. This file needs to be configured by the domain expert.
 * Watson NLU is used to extract the relations between entities
@@ -51,7 +51,8 @@ This Code Pattern is intended to help Developers, Data Scientists to give struct
 5. The knowledge graph is constructed.
 
 ## Video
-https://youtu.be/lC2-h2ac_Jg
+[![](http://img.youtube.com/vi/lC2-h2ac_Jg/0.jpg)](https://youtu.be/lC2-h2ac_Jg)
+
 
 ## Included components
 
@@ -70,21 +71,19 @@ https://youtu.be/lC2-h2ac_Jg
 Follow these steps to setup and run this code pattern. The steps are
 described in detail below.
 
-1. [Sign up for Watson Studio](#1-sign-up-for-watson-studio)
-1. [Create IBM Cloud services](#2-create-ibm-cloud-services)
-1. [Create the notebook](#3-create-the-notebook)
-1. [Add the data and configuraton file](#4-add-the-data-and-configuration-file)
-1. [Update the notebook with service credentials](#5-update-the-notebook-with-service-credentials)
-1. [Run the notebook](#6-run-the-notebook)
-1. [Analyze the results](#7-analyze-the-results)
+1. [Create IBM Cloud services](#1-create--for-watson-studio)
+1. [Run using a Jupyter notebook in the IBM Watson Studio](#2-create--for-watson-studio)
+    1. [Sign up for Watson Studio](#21-sign-up-for-watson-studio)
+    1. [Create IBM Cloud services](#22-create-ibm-cloud-services)
+    1. [Create the notebook](#23-create-the-notebook)
+    1. [Add the data and configuraton file](#24-add-the-data-and-configuration-file)
+    1. [Update the notebook with service credentials](#25-update-the-notebook-with-service-credentials)
+    1. [Run the notebook](#26-run-the-notebook)
+1. [Analyze the results](#3-analyze-the-results)
 
-## 1. Sign up for Watson Studio
 
-Sign up for IBM's [Watson Studio](https://dataplatform.ibm.com). By creating a project in Watson Studio a free tier ``Object Storage`` service will be created in your IBM Cloud account. Take note of your service names as you will need to select them in the following steps.
 
-> Note: When creating your Object Storage service, select the ``Free`` storage type in order to avoid having to pay an upgrade fee.
-
-## 2. Create IBM Cloud services
+## 1. Create IBM Cloud services
 
 Create the following IBM Cloud service and name it wdc-NLU-service:
 
@@ -92,72 +91,85 @@ Create the following IBM Cloud service and name it wdc-NLU-service:
 
   ![](doc/source/images/bluemix_service_nlu.png)
 
-## 3. Create the notebook
+## 2. Run using a Jupyter notebook in the IBM Watson Studio
 
-* In [Watson Studio](https://dataplatform.ibm.com), click on `Create notebook` to create a notebook.
-* Create a project if necessary, provisioning an object storage service if required.
-* In the `Assets` tab, select the `Create notebook` option.
-* Select the `From URL` tab.
-* Enter a name for the notebook.
-* Optionally, enter a description for the notebook.
-* Enter this Notebook URL: https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/blob/master/notebook/Knowledge_graph.ipynb
-* Select the free Anaconda runtime.
+1. [Create a new Watson Studio project](#1-create-a-new-watson-studio-project)
+2. [Associate a Spark service](#2-associate-a-spark-service)
+3. [Create the notebook](#3-create-the-notebook)
+4. [Run the notebook](#4-run-the-notebook)
+5. [Upload data](#5-upload-data)
+6. [Save and Share](#6-save-and-share)
+
+*Note: Running this part of the Code Pattern requires a [Message Hub](https://developer.ibm.com/messaging/message-hub/) service, which charges a nominal fee.*
+
+### 2.1 Create a new Watson Studio project
+
+* Log in or sign up for IBM's [Watson Studio](https://dataplatform.ibm.com).
+
+* Select the `New Project` option from the Watson Studio landing page and choose the `Jupyter Notebooks` option.
+
+![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/project_choices.png)
+
+* To create a project in Watson Studio, give the project a name and either create a new `Cloud Object Storage` service or select an existing one from your IBM Cloud account.
+
+![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/new_project.png)
+
+* Upon a successful project creation, you are taken to a dashboard view of your project. Take note of the `Assets` and `Settings` tabs, we'll be using them to associate our project with any external assets (datasets and notebooks) and any IBM cloud services.
+
+![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/project_dashboard.png)
+
+### 2.2 Associate a Spark service
+
+* From the project dashboard view, click the `Settings` tab, click the `+ Add service` button and choose the `Spark` option from the list.
+
+![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/add_service.png)
+
+* Create your Spark service by selecting an existing Spark service or creating a new one.
+
+![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/add_existing_spark_service.png)
+
+It should now appear in your _Services_ list.
+
+![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/spark_in_service_list.png)
+
+### 2.3 Create the notebook
+
+* From the project dashboard view, click the `Assets` tab, click the `+ New notebook` button.
+
+![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/new_notebook.png)
+
+* Give your notebook a name and select your desired runtime, in this case we'll be using the associated Spark runtime.
+
+![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/notebook_spark.png)
+
+* Now select the `From URL` tab to specify the URL to the notebook in this repository.
+
+![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/notebook_with_url_spark.png)
+
+* Enter this URL:
+
+```
+https://raw.githubusercontent.com/IBM/kafka-streaming-click-analysis/master/notebooks/Clickstream_Analytics_using_Apache_Spark_and_Message_Hub.ipynb/pixiedust_facebook_analysis.ipynb
+```
+
 * Click the `Create` button.
 
-![](doc/source/images/create_notebook_from_url.png)
+### 2.4 Run the notebook
 
-## 4. Add the data and configuration file
+Before running the notebook, you will need to setup a [Message Hub](https://developer.ibm.com/messaging/message-hub/) service.
 
-#### Add the data and configuration to the notebook
+* To create a Message Hub service, go to the `Data Services-> Services` tab on the IBM Watson Studio dashboard. Click `Create`, then select the Message Hub service. Select the `Standard` plan then follow the on-screen instructions to create the service. Once created, select the Message Hub service instance to bring up the details panel where you can create a topic. In the create form, name the topic `clicks` and leave the other fields with their default values.
 
-* From the `My Projects > Default` page, Use `Find and Add Data` (look for the `10/01` icon)
-and its `Files` tab.
-* Click `browse` and navigate to [Archive.zip](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/Data)
-* Click `browse` and navigate to [config_relations.txt](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/Configuration)
-* Click `browse` and navigate to [config_classification.txt](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/Configuration)
+* Next create a connection to this service so that it can be added as an asset to the project. Go to the `Data Services-> Connections` tab on the Watson Studio dashboard. Click `Create New` to create a connection. Provide a unique name and then select the just created Message Hub instance as the `Service Instance` connection.
 
-![](doc/source/images/add_file.png)
+* Next attach the connection as an asset to the project. Go to the `Assets` tab on your project dashboard. Click on `Add to project` and select the `Data Asset` option. Then click on the `Connections` tab and select your just created connection. Click 'Apply' to add the connection.
 
-> Note:  It is possible to use your own data and configuration files.
-If you use a configuration file from your computer, make sure to conform to the JSON structure given in `Configuration/config_classification.txt`.
+The notebook is now ready to be run. The first step in the notebook is to insert credentials for the Message Hub connection you just created. To do this, start the notebook in edit mode and select code cell '[1]'. Then click on the `1001` button located in the top right corner of the notebook. Select the `Connections` tab to see your Message Hub connector. Click the `Insert to code` button to download the Message Hub credentials data into code cell `[1]`.
 
-## 5. Update the notebook with service credentials
-
-#### Add the Watson Natural Language Understanding credentials to the notebook
-Select the cell below `2.1 Add your service credentials from IBM Cloud for the Watson services` section in the notebook to update the credentials for Watson Natural Langauage Understanding. 
-
-Open the Watson Natural Language Understanding service in your [IBM Cloud Dashboard](https://console.bluemix.net/dashboard/services) and click on your service, which you should have named `wdc-NLU-service`.
-
-Once the service is open click the `Service Credentials` menu on the left.
-
-![](doc/source/images/service_credentials.png)
-
-In the `Service Credentials` that opens up in the UI, select whichever `Credentials` you would like to use in the notebook from the `KEY NAME` column. Click `View credentials` and copy `username` and `password` key values that appear on the UI in JSON format.
-
-![](doc/source/images/copy_credentials.png)
-
-Update the `username` and `password` key values in the cell below `2.1 Add your service credentials from IBM Cloud for the Watson services` section.
-
-![](doc/source/images/watson_nlu_credentials.png)
-
-#### Add the Object Storage credentials to the notebook
-* Select the cell below `2.2 Add your service credentials for Object Storage` section in the notebook to update the credentials for Object Store.
-* Delete the contents of the cell
-
-* Use `Find and Add Data` (look for the `10/01` icon) and its `Files` tab. You should see the file names uploaded earlier. Make sure your active cell is the empty one below `2.2 Add...`
-* Select `Insert to code` (below your sample_text.txt).
-* Click `Insert Credentials` from drop down menu.
-* Make sure the credentials are saved as `credentials_1`.
-
-![](doc/source/images/objectstorage_credentials.png)
-
-## 6. Run the notebook
+> Note: Make sure you rename the credentials object to `credentials_1`.
 
 When a notebook is executed, what is actually happening is that each code cell in
 the notebook is executed, in order, from top to bottom.
-
-> IMPORTANT: The first time you run your notebook, you will need to install the necessary
-packages in section 1.1 and then `Restart the kernel`.
 
 Each code cell is selectable and is preceded by a tag in the left margin. The tag
 format is `In [x]:`. Depending on the state of the notebook, the `x` can be:
@@ -180,10 +192,61 @@ There are several ways to execute the code cells in your notebook:
     panel. Here you can schedule your notebook to be executed once at some future
     time, or repeatedly at your specified interval.
 
-## 7. Analyze the results
+
+### 2.5 Upload data
+
+#### Upload the data and configuration to the notebook
+
+* From the `My Projects > Default` page, Use `Find and Add Data` (look for the `10/01` icon)
+and its `Files` tab.
+* Click `browse` and navigate to [Archive.zip](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/Data)
+* Click `browse` and navigate to [config_relations.txt](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/Configuration)
+* Click `browse` and navigate to [config_classification.txt](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/Configuration)
+
+![](doc/source/images/add_file.png)
+
+> Note:  It is possible to use your own data and configuration files.
+If you use a configuration file from your computer, make sure to conform to the JSON structure given in `Configuration/config_classification.txt`.
+
+### 2.6 Save and Share
+
+#### How to save your work:
+
+Under the `File` menu, there are several ways to save your notebook:
+
+* `Save` will simply save the current state of your notebook, without any version
+  information.
+* `Save Version` will save your current state of your notebook with a version tag
+  that contains a date and time stamp. Up to 10 versions of your notebook can be
+  saved, each one retrievable by selecting the `Revert To Version` menu item.
+
+#### How to share your work:
+
+You can share your notebook by selecting the “Share” button located in the top
+right section of your notebook panel. The end result of this action will be a URL
+link that will display a “read-only” version of your notebook. You have several
+options to specify exactly what you want shared from your notebook:
+
+* `Only text and output`: will remove all code cells from the notebook view.
+* `All content excluding sensitive code cells`:  will remove any code cells
+  that contain a *sensitive* tag. For example, `# @hidden_cell` is used to protect
+  your dashDB credentials from being shared.
+* `All content, including code`: displays the notebook as is.
+* A variety of `download as` options are also available in the menu.
+
+
+## 3. Analyze the results
 In the Section. Process of the notebook, the files are loaded. First the configuration files(config_classification.txt and config_relations.txt) are loaded. The unstructured information is extracted using python package mammoth. Mammoth converts the docx files to html from where text in the tables is also analysed along with free floating text. The results from Watson NLU are analyzed and augmented using the configuration files. The entities are augmented using the `config_classification.txt` and the relationships are augmented using `config_relations.txt`. The results are then filtered and formatted to pick up the relevant relations and discard the ones which are not relevant. The filtered relaionships are sent to draw graph function in the notebook, which will construct the knowledge graph.
 
 ![](doc/source/images/graph.png)
+
+
+# Learn more
+
+* **Data Analytics Code Patterns**: Enjoyed this Code Pattern? Check out our other [Data Analytics Code Patterns](https://developer.ibm.com/code/technologies/data-science/)
+* **AI and Data Code Pattern Playlist**: Bookmark our [playlist](https://www.youtube.com/playlist?list=PLzUbsvIyrNfknNewObx5N7uGZ5FKH0Fde) with all of our Code Pattern videos
+* **Watson Studio**: Master the art of data science with IBM's [Watson Studio](https://dataplatform.ibm.com/)
+* **Spark on IBM Cloud**: Need a Spark cluster? Create up to 30 Spark executors on IBM Cloud with our [Spark service](https://console.bluemix.net/catalog/services/apache-spark)
 
 # Troubleshooting
 
