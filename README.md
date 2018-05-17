@@ -71,8 +71,8 @@ This Code Pattern is intended to help Developers, Data Scientists to give struct
 Follow these steps to setup and run this code pattern. The steps are
 described in detail below.
 
-1. [Create IBM Cloud services](#1-create--for-watson-studio)
-1. [Run using a Jupyter notebook in the IBM Watson Studio](#2-create--for-watson-studio)
+1. [Create IBM Cloud services](#1-create-ibm-cloud-services)
+1. [Run using a Jupyter notebook in the IBM Watson Studio](#2-run-using-a-jupyter-notebook-in-the-ibm-watson-studio)
     1. [Sign up for Watson Studio](#21-sign-up-for-watson-studio)
     1. [Create IBM Cloud services](#22-create-ibm-cloud-services)
     1. [Create the notebook](#23-create-the-notebook)
