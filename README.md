@@ -94,7 +94,7 @@ Create the following IBM Cloud service and name it wdc-NLU-service:
 5. [Upload data](#25-upload-data)
 6. [Save and Share](#26-save-and-share)
 
-*Note: Running this part of the Code Pattern requires a [Message Hub](https://developer.ibm.com/messaging/message-hub/) service, which charges a nominal fee.*
+
 
 ### 2.1 Create a new Watson Studio project
 
@@ -139,12 +139,6 @@ It should now appear in your _Services_ list.
 * Now select the `From URL` tab to specify the URL to the notebook in this repository.
 
 ![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/notebook_with_url_spark.png)
-
-* Enter this URL:
-
-```
-https://raw.githubusercontent.com/IBM/kafka-streaming-click-analysis/master/notebooks/Clickstream_Analytics_using_Apache_Spark_and_Message_Hub.ipynb/pixiedust_facebook_analysis.ipynb
-```
 
 * Click the `Create` button.
 
