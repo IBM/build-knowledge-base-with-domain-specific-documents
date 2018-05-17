@@ -88,11 +88,11 @@ Create the following IBM Cloud service and name it wdc-NLU-service:
 ## 2. Run using a Jupyter notebook in the IBM Watson Studio
 
 1. [Create a new Watson Studio project](#21-create-a-new-watson-studio-project)
-2. [Associate a Spark service](#2-associate-a-spark-service)
-3. [Create the notebook](#3-create-the-notebook)
-4. [Run the notebook](#4-run-the-notebook)
-5. [Upload data](#5-upload-data)
-6. [Save and Share](#6-save-and-share)
+2. [Associate a Spark service](#22-associate-a-spark-service)
+3. [Create the notebook](#23-create-the-notebook)
+4. [Run the notebook](#24-run-the-notebook)
+5. [Upload data](#25-upload-data)
+6. [Save and Share](#26-save-and-share)
 
 *Note: Running this part of the Code Pattern requires a [Message Hub](https://developer.ibm.com/messaging/message-hub/) service, which charges a nominal fee.*
 
@@ -150,18 +150,6 @@ https://raw.githubusercontent.com/IBM/kafka-streaming-click-analysis/master/note
 
 ### 2.4 Run the notebook
 
-Before running the notebook, you will need to setup a [Message Hub](https://developer.ibm.com/messaging/message-hub/) service.
-
-* To create a Message Hub service, go to the `Data Services-> Services` tab on the IBM Watson Studio dashboard. Click `Create`, then select the Message Hub service. Select the `Standard` plan then follow the on-screen instructions to create the service. Once created, select the Message Hub service instance to bring up the details panel where you can create a topic. In the create form, name the topic `clicks` and leave the other fields with their default values.
-
-* Next create a connection to this service so that it can be added as an asset to the project. Go to the `Data Services-> Connections` tab on the Watson Studio dashboard. Click `Create New` to create a connection. Provide a unique name and then select the just created Message Hub instance as the `Service Instance` connection.
-
-* Next attach the connection as an asset to the project. Go to the `Assets` tab on your project dashboard. Click on `Add to project` and select the `Data Asset` option. Then click on the `Connections` tab and select your just created connection. Click 'Apply' to add the connection.
-
-The notebook is now ready to be run. The first step in the notebook is to insert credentials for the Message Hub connection you just created. To do this, start the notebook in edit mode and select code cell '[1]'. Then click on the `1001` button located in the top right corner of the notebook. Select the `Connections` tab to see your Message Hub connector. Click the `Insert to code` button to download the Message Hub credentials data into code cell `[1]`.
-
-> Note: Make sure you rename the credentials object to `credentials_1`.
-
 When a notebook is executed, what is actually happening is that each code cell in
 the notebook is executed, in order, from top to bottom.
 
@@ -193,9 +181,9 @@ There are several ways to execute the code cells in your notebook:
 
 * From the `My Projects > Default` page, Use `Find and Add Data` (look for the `10/01` icon)
 and its `Files` tab.
-* Click `browse` and navigate to [Archive.zip](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/Data)
-* Click `browse` and navigate to [config_relations.txt](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/Configuration)
-* Click `browse` and navigate to [config_classification.txt](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/Configuration)
+* Click `browse` and navigate to [Archive.zip](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/data)
+* Click `browse` and navigate to [config_relations.txt](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/data)
+* Click `browse` and navigate to [config_classification.txt](https://github.com/IBM/build-knowledge-base-with-domain-specific-documents/tree/master/data)
 
 ![](doc/source/images/add_file.png)
 
