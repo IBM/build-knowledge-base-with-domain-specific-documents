@@ -3,7 +3,9 @@
 
 
 
-In any business, word documents are a common occurence. They contain information in the form of raw text, tables and images. All of them contain important facts. The documents used, are created for the sake of this Code Pattern. The content for both the documents about oncology and the famous oncologist Suresh H. Advani is taken from wikipedia. Find these documents in data folder.
+In any business, word documents are a common occurence. They contain information in the form of raw text, tables and images. All of them contain important facts. The data used in this code pattern comes from two Wikipedia articles. The first is taken from the Wikipedia page of oncologist [Suresh H. Advani](https://en.wikipedia.org/wiki/Suresh_H._Advani) the second is from the Wikipedia page about [Oncology](https://en.wikipedia.org/wiki/Oncology). These files are zipped up as [Archive.zip](data/Archive.zip).
+
+
 
 In the figure below, there is a textual information about an oncologist Suresh H. Advani present in a word document. The table consists of the awards that he has been awarded by various organisations. 
 
@@ -16,12 +18,12 @@ In the figure below, there is a textual information about an oncologist Suresh H
 In this Code pattern, we address the problem of extracting knowledge out of **text and tables** in word documents. A knowledge graph is built from the knowledge extracted making the knowledge queryable.
 
 Some of the challenges in extracting knowledge from word documents are:
-1. The Natural Language Processing(NLP) tools cannot access the text inside word documents. The word documents need to be converted to plain text files.
+1. The Natural Language Processing (NLP) tools cannot access the text inside word documents. The word documents need to be converted to plain text files.
 2. There are business and domain experts who understand the keywords and entities that are present in the documents. But training the NLP tool to extract domain specific keywords and entities is a big effort. Also, it is impractical in many scenarios to find sufficient number of documents to train the NLP tool to process the text. 
 
 This pattern uses the below methodology to overcome the challenges:
 * The [`python package mammoth`](https://pypi.org/project/mammoth/) is used to convert `.docx` files to html (semi-structured format). 
-* Watson Natural Language Understanding(Watson NLU) is used to extract the common entities
+* Watson Natural Language Understanding (Watson NLU) is used to extract the common entities
 * A rules based approach that is explained in the code pattern [Extend Watson text Classification](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) is used to augment the output from Watson NLU. The rules based approach does not require training documents or training effort. A configuration file is taken as input by the algorithm. This file needs to be configured by the domain expert.
 * Watson NLU is used to extract the relations between entities
 * A rules based approach that is explained in the code pattern [Watson Document Corelation](https://developer.ibm.com/code/patterns/watson-document-correlation/) is used to augment the output from Watson NLU. A configuration file is taken as input by the algorithm. This file needs to be configured by the domain expert.
@@ -88,11 +90,10 @@ Create the following IBM Cloud service and name it wdc-NLU-service:
 ## 2. Run using a Jupyter notebook in the IBM Watson Studio
 
 1. [Create a new Watson Studio project](#21-create-a-new-watson-studio-project)
-2. [Associate a Spark service](#22-associate-a-spark-service)
-3. [Create the notebook](#23-create-the-notebook)
-4. [Run the notebook](#24-run-the-notebook)
-5. [Upload data](#25-upload-data)
-6. [Save and Share](#26-save-and-share)
+2. [Create the notebook](#22-create-the-notebook)
+3. [Run the notebook](#23-run-the-notebook)
+4. [Upload data](#24-upload-data)
+5. [Save and Share](#25-save-and-share)
 
 
 
@@ -112,21 +113,8 @@ Create the following IBM Cloud service and name it wdc-NLU-service:
 
 ![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/project_dashboard.png)
 
-### 2.2 Associate a Spark service
 
-* From the project dashboard view, click the `Settings` tab, click the `+ Add service` button and choose the `Spark` option from the list.
-
-![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/add_service.png)
-
-* Create your Spark service by selecting an existing Spark service or creating a new one.
-
-![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/add_existing_spark_service.png)
-
-It should now appear in your _Services_ list.
-
-![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/spark_in_service_list.png)
-
-### 2.3 Create the notebook
+### 2.2 Create the notebook
 
 * From the project dashboard view, click the `Assets` tab, click the `+ New notebook` button.
 
@@ -142,7 +130,7 @@ It should now appear in your _Services_ list.
 
 * Click the `Create` button.
 
-### 2.4 Run the notebook
+### 2.3 Run the notebook
 
 When a notebook is executed, what is actually happening is that each code cell in
 the notebook is executed, in order, from top to bottom.
@@ -169,7 +157,7 @@ There are several ways to execute the code cells in your notebook:
     time, or repeatedly at your specified interval.
 
 
-### 2.5 Upload data
+### 2.4 Upload data
 
 #### Upload the data and configuration to the notebook
 
@@ -184,7 +172,7 @@ and its `Files` tab.
 > Note:  It is possible to use your own data and configuration files.
 If you use a configuration file from your computer, make sure to conform to the JSON structure given in `data/config_classification.txt`.
 
-### 2.6 Save and Share
+### 2.5 Save and Share
 
 #### How to save your work:
 
