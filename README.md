@@ -53,7 +53,7 @@ This Code Pattern is intended to help Developers, Data Scientists to give struct
 5. The knowledge graph is constructed.
 
 ## Video
-[![](http://img.youtube.com/vi/lC2-h2ac_Jg/0.jpg)](https://youtu.be/lC2-h2ac_Jg)
+[![](doc/source/images/youtube.png)](https://youtu.be/lC2-h2ac_Jg)
 
 
 ## Included components
