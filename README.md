@@ -1,19 +1,11 @@
 # Build-knowledge-base-with-domain-specific-documents
 > Data Science Experience is now Watson Studio. Although some images in this code pattern may show the service as Data Science Experience, the steps and processes will still work.
 
-
-
 In any business, word documents are a common occurence. They contain information in the form of raw text, tables and images. All of them contain important facts. The data used in this code pattern comes from two Wikipedia articles. The first is taken from the Wikipedia page of oncologist [Suresh H. Advani](https://en.wikipedia.org/wiki/Suresh_H._Advani) the second is from the Wikipedia page about [Oncology](https://en.wikipedia.org/wiki/Oncology). These files are zipped up as [Archive.zip](data/Archive.zip).
-
-
 
 In the figure below, there is a textual information about an oncologist Suresh H. Advani present in a word document. The table consists of the awards that he has been awarded by various organisations. 
 
-
-
 ![](doc/source/images/example.png)
-
-
  
 In this Code pattern, we address the problem of extracting knowledge out of **text and tables** in word documents. A knowledge graph is built from the knowledge extracted making the knowledge queryable.
 
@@ -26,7 +18,7 @@ This pattern uses the below methodology to overcome the challenges:
 * Watson Natural Language Understanding (Watson NLU) is used to extract the common entities
 * A rules based approach that is explained in the code pattern [Extend Watson text Classification](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) is used to augment the output from Watson NLU. The rules based approach does not require training documents or training effort. A configuration file is taken as input by the algorithm. This file needs to be configured by the domain expert.
 * Watson NLU is used to extract the relations between entities
-* A rules based approach that is explained in the code pattern [Watson Document Corelation](https://developer.ibm.com/code/patterns/watson-document-correlation/) is used to augment the output from Watson NLU. A configuration file is taken as input by the algorithm. This file needs to be configured by the domain expert.
+* A rules based approach that is explained in the code pattern [Watson Document Correlation](https://developer.ibm.com/code/patterns/watson-document-correlation/) is used to augment the output from Watson NLU. A configuration file is taken as input by the algorithm. This file needs to be configured by the domain expert.
 
 The best of both worlds - training and rules based approach is used to extract knowledge out of documents.
 
@@ -34,7 +26,7 @@ In this Pattern we will demonstrate:
 
 * Extracting the information from the documents- free-floating text and Table text.
 * [Cleaning the data](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) pattern to extract entities from documents
-* Use [Watson Document Corelation](https://developer.ibm.com/codetterns/watson-document-correlation/) pattern to extract relationships between entities*
+* Use [Watson Document Correlation](https://developer.ibm.com/codetterns/watson-document-correlation/) pattern to extract relationships between entities
 * Build a knowledge base(graph) from it.
 
 What makes this Code Pattern valuable:
@@ -43,18 +35,17 @@ What makes this Code Pattern valuable:
 
 This Code Pattern is intended to help Developers, Data Scientists to give structure to the unstructured data. This can be used to shape their analysis significantly and use the data for further processing to get better Insights. 
 
-
 ![](doc/source/images/architecture.png) 
 
-1. The unstructured text data from the docx files(html tables and free floating text) that need to be analyzed and correlated is extracted from the documents using python code.
+1. The unstructured text data from the docx files (html tables and free floating text) that need to be analyzed and correlated is extracted from the documents using python code.
 2. Use Extend Watson text Classification text is classified using Watson NLU and also tagged using the code pattern - [Extend Watson text classification](https://github.com/IBM/watson-document-classifier)
 3. The text is correlated with other text using the code pattern - [Correlate documents](https://github.com/IBM/watson-document-co-relation)  
 4. The results are filtered using python code.
 5. The knowledge graph is constructed.
 
 ## Video
-[![](http://img.youtube.com/vi/lC2-h2ac_Jg/hqdefault.jpg)](https://youtu.be/lC2-h2ac_Jg)
 
+[![](http://img.youtube.com/vi/lC2-h2ac_Jg/hqdefault.jpg)](https://youtu.be/lC2-h2ac_Jg)
 
 ## Included components
 
@@ -77,8 +68,6 @@ described in detail below.
 1. [Run using a Jupyter notebook in the IBM Watson Studio](#2-run-using-a-jupyter-notebook-in-the-ibm-watson-studio)
 1. [Analyze the results](#3-analyze-the-results)
 
-
-
 ## 1. Create IBM Cloud services
 
 Create the following IBM Cloud service and name it wdc-NLU-service:
@@ -94,8 +83,6 @@ Create the following IBM Cloud service and name it wdc-NLU-service:
 3. [Run the notebook](#23-run-the-notebook)
 4. [Upload data](#24-upload-data)
 5. [Save and Share](#25-save-and-share)
-
-
 
 ### 2.1 Create a new Watson Studio project
 
@@ -113,6 +100,7 @@ Create the following IBM Cloud service and name it wdc-NLU-service:
 
 ![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/project_dashboard.png)
 
+Once the service is open, click the `Service Credentials` menu on the left.
 
 ### 2.2 Create the notebook
 
@@ -203,7 +191,6 @@ options to specify exactly what you want shared from your notebook:
 In the Section. Process of the notebook, the files are loaded. First the configuration files(config_classification.txt and config_relations.txt) are loaded. The unstructured information is extracted using python package mammoth. Mammoth converts the docx files to html from where text in the tables is also analysed along with free floating text. The results from Watson NLU are analyzed and augmented using the configuration files. The entities are augmented using the `config_classification.txt` and the relationships are augmented using `config_relations.txt`. The results are then filtered and formatted to pick up the relevant relations and discard the ones which are not relevant. The filtered relaionships are sent to draw graph function in the notebook, which will construct the knowledge graph.
 
 ![](doc/source/images/graph.png)
-
 
 # Learn more
 
