@@ -3,61 +3,61 @@
 
 In any business, word documents are a common occurence. They contain information in the form of raw text, tables and images. All of them contain important facts. The data used in this code pattern comes from two Wikipedia articles. The first is taken from the Wikipedia page of oncologist [Suresh H. Advani](https://en.wikipedia.org/wiki/Suresh_H._Advani) the second is from the Wikipedia page about [Oncology](https://en.wikipedia.org/wiki/Oncology). These files are zipped up as [Archive.zip](data/Archive.zip).
 
-In the figure below, there is a textual information about an oncologist Suresh H. Advani present in a word document. The table consists of the awards that he has been awarded by various organisations. 
+In the figure below, there is a textual information about an oncologist Suresh H. Advani present in a word document. The table consists of the awards that he has been awarded by various organisations.
 
 ![](doc/source/images/example.png)
- 
+
 In this Code pattern, we address the problem of extracting knowledge out of **text and tables** in word documents. A knowledge graph is built from the knowledge extracted making the knowledge queryable.
 
 Some of the challenges in extracting knowledge from word documents are:
 1. The Natural Language Processing (NLP) tools cannot access the text inside word documents. The word documents need to be converted to plain text files.
-2. There are business and domain experts who understand the keywords and entities that are present in the documents. But training the NLP tool to extract domain specific keywords and entities is a big effort. Also, it is impractical in many scenarios to find sufficient number of documents to train the NLP tool to process the text. 
+2. There are business and domain experts who understand the keywords and entities that are present in the documents. But training the NLP tool to extract domain specific keywords and entities is a big effort. Also, it is impractical in many scenarios to find sufficient number of documents to train the NLP tool to process the text.
 
 This pattern uses the below methodology to overcome the challenges:
-* The [`python package mammoth`](https://pypi.org/project/mammoth/) is used to convert `.docx` files to html (semi-structured format). 
+* The [`python package mammoth`](https://pypi.org/project/mammoth/) is used to convert `.docx` files to html (semi-structured format).
 * Watson Natural Language Understanding (Watson NLU) is used to extract the common entities
-* A rules based approach that is explained in the code pattern [Extend Watson text Classification](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) is used to augment the output from Watson NLU. The rules based approach does not require training documents or training effort. A configuration file is taken as input by the algorithm. This file needs to be configured by the domain expert.
+* A rules based approach that is explained in the code pattern [Extend Watson text Classification](https://developer.ibm.com/patterns/extend-watson-text-classification/) is used to augment the output from Watson NLU. The rules based approach does not require training documents or training effort. A configuration file is taken as input by the algorithm. This file needs to be configured by the domain expert.
 * Watson NLU is used to extract the relations between entities
-* A rules based approach that is explained in the code pattern [Watson Document Correlation](https://developer.ibm.com/code/patterns/watson-document-correlation/) is used to augment the output from Watson NLU. A configuration file is taken as input by the algorithm. This file needs to be configured by the domain expert.
+* A rules based approach that is explained in the code pattern [Watson Document Correlation](https://developer.ibm.com/patterns/watson-document-correlation/) is used to augment the output from Watson NLU. A configuration file is taken as input by the algorithm. This file needs to be configured by the domain expert.
 
 The best of both worlds - training and rules based approach is used to extract knowledge out of documents.
 
 In this Pattern we will demonstrate:
 
 * Extracting the information from the documents- free-floating text and Table text.
-* [Cleaning the data](https://developer.ibm.com/code/patterns/extend-watson-text-classification/) pattern to extract entities from documents
-* Use [Watson Document Correlation](https://developer.ibm.com/codetterns/watson-document-correlation/) pattern to extract relationships between entities
+* [Cleaning the data](https://developer.ibm.com/patterns/extend-watson-text-classification/) pattern to extract entities from documents
+* Use [Watson Document Correlation](https://developer.ibm.com/patterns/watson-document-correlation/) pattern to extract relationships between entities
 * Build a knowledge base(graph) from it.
 
 What makes this Code Pattern valuable:
-* The ability to process the tables in docx files along with free-floating text. 
+* The ability to process the tables in docx files along with free-floating text.
 * And also the strategy on combining the results of the real-time analysis by Watson NLU and the results from the rules defined by a Subject matter expert or Domain expert.
 
-This Code Pattern is intended to help Developers, Data Scientists to give structure to the unstructured data. This can be used to shape their analysis significantly and use the data for further processing to get better Insights. 
+This Code Pattern is intended to help Developers, Data Scientists to give structure to the unstructured data. This can be used to shape their analysis significantly and use the data for further processing to get better Insights.
 
-![](doc/source/images/architecture.png) 
+![](doc/source/images/architecture.png)
 
 1. The unstructured text data from the docx files (html tables and free floating text) that need to be analyzed and correlated is extracted from the documents using python code.
 2. Use Extend Watson text Classification text is classified using Watson NLU and also tagged using the code pattern - [Extend Watson text classification](https://github.com/IBM/watson-document-classifier)
-3. The text is correlated with other text using the code pattern - [Correlate documents](https://github.com/IBM/watson-document-co-relation)  
+3. The text is correlated with other text using the code pattern - [Correlate documents](https://github.com/IBM/watson-document-co-relation)
 4. The results are filtered using python code.
 5. The knowledge graph is constructed.
 
 ## Video
 
-[![](http://img.youtube.com/vi/lC2-h2ac_Jg/hqdefault.jpg)](https://youtu.be/lC2-h2ac_Jg)
+[![](https://img.youtube.com/vi/lC2-h2ac_Jg/hqdefault.jpg)](https://youtu.be/lC2-h2ac_Jg)
 
 ## Included components
 
 * [IBM Watson Studio](https://www.ibm.com/cloud/watson-studio): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
 
-* [IBM Cloud Object Storage](https://console.bluemix.net/catalog/infrastructure/cloud-object-storage): An IBM Cloud service that provides an unstructured cloud data store to build and deliver cost effective apps and services with high reliability and fast speed to market.
+* [IBM Cloud Object Storage](https://cloud.ibm.com/catalog/services/cloud-object-storage): An IBM Cloud service that provides an unstructured cloud data store to build and deliver cost effective apps and services with high reliability and fast speed to market.
 
-* [Watson Natural Language Understanding](https://console.bluemix.net/catalog/services/natural-language-understanding/?cm_sp=dw-bluemix-_-code-_-devcenter): A IBM Cloud service that can analyze text to extract meta-data from content such as concepts, entities, keywords, categories, sentiment, emotion, relations, semantic roles, using natural language understanding.
+* [Watson Natural Language Understanding](https://cloud.ibm.com/catalog/services/natural-language-understanding?cm_sp=dw-bluemix-_-code-_-devcenter): A IBM Cloud service that can analyze text to extract meta-data from content such as concepts, entities, keywords, categories, sentiment, emotion, relations, semantic roles, using natural language understanding.
 
 ## Featured technologies
 
-* [Jupyter Notebooks](http://jupyter.org/): An open-source web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text.
+* [Jupyter Notebooks](https://jupyter.org/): An open-source web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text.
 
 # Steps
 
@@ -72,7 +72,7 @@ described in detail below.
 
 Create the following IBM Cloud service and name it wdc-NLU-service:
 
-  * [**Watson Natural Language Understanding**](https://console.bluemix.net/catalog/services/natural-language-understanding)
+  * [**Watson Natural Language Understanding**](https://cloud.ibm.com/catalog/services/natural-language-understanding)
 
   ![](doc/source/images/bluemix_service_nlu.png)
 
@@ -86,7 +86,7 @@ Create the following IBM Cloud service and name it wdc-NLU-service:
 
 ### 2.1 Create a new Watson Studio project
 
-* Log in or sign up for IBM's [Watson Studio](https://dataplatform.ibm.com).
+* Log in or sign up for IBM's [Watson Studio](https://dataplatform.cloud.ibm.com/).
 
 * Select the `New Project` option from the Watson Studio landing page and choose the `Jupyter Notebooks` option.
 
@@ -194,10 +194,10 @@ In the Section. Process of the notebook, the files are loaded. First the configu
 
 # Learn more
 
-* **Data Analytics Code Patterns**: Enjoyed this Code Pattern? Check out our other [Data Analytics Code Patterns](https://developer.ibm.com/code/technologies/data-science/)
+* **Data Analytics Code Patterns**: Enjoyed this Code Pattern? Check out our other [Data Analytics Code Patterns](https://developer.ibm.com/technologies/data-science/)
 * **AI and Data Code Pattern Playlist**: Bookmark our [playlist](https://www.youtube.com/playlist?list=PLzUbsvIyrNfknNewObx5N7uGZ5FKH0Fde) with all of our Code Pattern videos
-* **Watson Studio**: Master the art of data science with IBM's [Watson Studio](https://dataplatform.ibm.com/)
-* **Spark on IBM Cloud**: Need a Spark cluster? Create up to 30 Spark executors on IBM Cloud with our [Spark service](https://console.bluemix.net/catalog/services/apache-spark)
+* **Watson Studio**: Master the art of data science with IBM's [Watson Studio](https://dataplatform.cloud.ibm.com//)
+* **Spark on IBM Cloud**: Need a Spark cluster? Create up to 30 Spark executors on IBM Cloud with our [Spark service](https://cloud.ibm.com/catalog/services/apache-spark)
 
 # Troubleshooting
 
